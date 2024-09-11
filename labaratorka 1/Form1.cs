@@ -1,21 +1,24 @@
-namespace labaratorka_1
+п»їnamespace labaratorka_1
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
+        }        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)// площадь
+        private void button1_Click(object sender, EventArgs e)// ГЇГ«Г®Г№Г Г¤Гј
         {
             double side1;
             double side2;
             double gradus1;
             double s;
-            if (!(double.TryParse(shrina.Text, out side1) && double.TryParse(dlina.Text, out side2) && double.TryParse(gradus.Text, out gradus1)))
+            if (!(double.TryParse(shrina.Text, out side1) && double.TryParse(dlina.Text, out side2) && double.TryParse(gradus.Text, out gradus1) ))
             {
-                MessageBox.Show("Введите правильные числовые значения");
+                MessageBox.Show("РћС€РёР±РєР°, РІРІРµРґРёС‚Рµ РїСЂР°РІРёР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ");
             }
             else
             {
@@ -26,7 +29,7 @@ namespace labaratorka_1
 
         }
 
-        private void button2_Click(object sender, EventArgs e)// периметр
+        private void button2_Click(object sender, EventArgs e)// ГЇГҐГ°ГЁГ¬ГҐГІГ°
         {
             double side1;
             double side2;
@@ -34,14 +37,84 @@ namespace labaratorka_1
             double p;
             if (!(double.TryParse(shrina.Text, out side1) && double.TryParse(dlina.Text, out side2) && double.TryParse(gradus.Text, out gradus1)))
             {
-                MessageBox.Show("Введите правильные числовые значения");
+                MessageBox.Show("РћС€РёР±РєР°, РІРІРµРґРёС‚Рµ РїСЂР°РІРёР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ");
             }
             else
             {
-                p = 2 * side1 + 2 * side2;
-                label1.Text = p.ToString();
+
             }
         }
+        private void shrina_Leave(object sender, EventArgs e)
+        {
+            double side1;
+            double side2;
+            double gradus1;
+            double s;
+            double p;
+           if (!double.TryParse(shrina.Text, out side1))
+                {
+                    MessageBox.Show("РћС€РёР±РєР°, РІРІРµРґРёС‚Рµ РїСЂР°РІРёР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ");
+                    shrina.Focus();
+                }
+            else if (dlina.Text != "" && gradus.Text != "")
+            {
+                    double.TryParse(dlina.Text, out side2);
+                    double.TryParse(gradus.Text, out gradus1);
+                    gradus1 = gradus1 * Math.PI / 180;
+                    s = side1 * side2 * Math.Sin(gradus1);
+                    label2.Text = s.ToString();
+                    p = 2 * side1 + 2 * side2;
+                    label1.Text = p.ToString();
+                }
+            }
+
+        private void dlina_Leave(object sender, EventArgs e)
+        {
+            double side1;
+            double side2;
+            double gradus1;
+            double s;
+            double p;
+                    if (!double.TryParse(dlina.Text, out side2))
+                    {
+                        MessageBox.Show("РћС€РёР±РєР°, РІРІРµРґРёС‚Рµ РїСЂР°РІРёР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ");
+                        dlina.Focus();
+                    }
+                    else if (shrina.Text != ""  && gradus.Text != "")
+                    {   
+                        double.TryParse(shrina.Text, out side1);
+                        double.TryParse(gradus.Text, out gradus1);
+                        gradus1 = gradus1 * Math.PI / 180;
+                        s = side1 * side2 * Math.Sin(gradus1);
+                        label2.Text = s.ToString();
+                        p = 2 * side1 + 2 * side2;
+                        label1.Text = p.ToString();
+                    }
+                }
+        private void gradus_Leave(object sender, EventArgs e)
+        {
+            double side1;
+            double side2;
+            double gradus1;
+            double s;
+            double p;
+                if (!double.TryParse(gradus.Text, out gradus1))
+                {
+                    
+                    MessageBox.Show("РћС€РёР±РєР°, РІРІРµРґРёС‚Рµ РїСЂР°РІРёР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ");
+                    gradus.Focus();
+                }
+                else if (shrina.Text != "" && dlina.Text != "" )
+                {
+                    double.TryParse(shrina.Text, out side1);
+                    double.TryParse(dlina.Text, out side2);
+                    gradus1 = gradus1 * Math.PI / 180;
+                    s = side1 * side2 * Math.Sin(gradus1);
+                    label2.Text = s.ToString();
+                    p = 2 * side1 + 2 * side2;
+                    label1.Text = p.ToString();
+                }
+            }      
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -102,5 +175,7 @@ namespace labaratorka_1
         {
 
         }
+
+
     }
 }

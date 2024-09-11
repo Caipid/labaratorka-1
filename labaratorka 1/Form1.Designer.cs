@@ -43,6 +43,7 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -72,6 +73,7 @@
             shrina.Size = new Size(139, 27);
             shrina.TabIndex = 4;
             shrina.TextChanged += textBox3_TextChanged;
+            shrina.Leave += shrina_Leave;
             // 
             // dlina
             // 
@@ -79,6 +81,7 @@
             dlina.Name = "dlina";
             dlina.Size = new Size(139, 27);
             dlina.TabIndex = 5;
+            dlina.Leave += dlina_Leave;
             // 
             // gradus
             // 
@@ -86,11 +89,12 @@
             gradus.Name = "gradus";
             gradus.Size = new Size(139, 27);
             gradus.TabIndex = 9;
+            gradus.Leave += gradus_Leave;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(89, 354);
+            label1.Location = new Point(89, 363);
             label1.Name = "label1";
             label1.Size = new Size(0, 20);
             label1.TabIndex = 11;
@@ -163,7 +167,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(12, 354);
+            label9.Location = new Point(0, 363);
             label9.Name = "label9";
             label9.Size = new Size(83, 20);
             label9.TabIndex = 20;
@@ -173,18 +177,29 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(12, 383);
+            label10.Location = new Point(0, 383);
             label10.Name = "label10";
             label10.Size = new Size(76, 20);
             label10.TabIndex = 21;
             label10.Text = "Площадь:";
             label10.Click += label10_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(505, 383);
+            button3.Name = "button3";
+            button3.Size = new Size(306, 29);
+            button3.TabIndex = 22;
+            button3.Text = "Завершение программы";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(887, 450);
+            Controls.Add(button3);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -224,5 +239,6 @@
         private Label label8;
         private Label label9;
         private Label label10;
+        private Button button3;
     }
 }
